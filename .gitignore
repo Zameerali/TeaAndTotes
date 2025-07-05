@@ -52,3 +52,5 @@ dump/
 
 # Optional: local file uploads (if you store files locally before GridFS)
 uploads/
+
+server/seed.js
