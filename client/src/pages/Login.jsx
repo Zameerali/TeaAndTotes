@@ -31,7 +31,7 @@ function Login() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-green-800 dark:text-green-200 mb-8 text-center drop-shadow-lg animate-fade-in tracking-tight leading-tight">Login</h2>
         <div className="max-w-lg mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-green-100 dark:border-gray-800">
-          {error && <p className="text-red-600 text-center mb-4">{error}</p>}
+          {error && <p className="text-red-600 dark:text-red-400 text-center mb-4">{error}</p>}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="flex flex-col gap-1">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
@@ -40,7 +40,7 @@ function Login() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                 placeholder="Enter your email"
               />
             </div>
@@ -51,7 +51,7 @@ function Login() {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                 placeholder="Enter your password"
               />
             </div>
