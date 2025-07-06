@@ -16,7 +16,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-green-100/80 via-white/80 to-green-50/80 dark:from-gray-900/90 dark:via-gray-800/90 dark:to-gray-900/90 backdrop-blur-md border-b border-green-200 dark:border-gray-800 text-green-900 dark:text-green-100 p-4 sticky top-0 z-20 shadow-md animate-fade-in transition-colors duration-300">
+    <nav className="bg-gradient-to-r from-green-100/80 via-white/80 to-green-50/80 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 backdrop-blur-md border-b border-green-200 dark:border-green-700 text-green-900 dark:text-white p-4 sticky top-0 z-20 shadow-md animate-fade-in transition-colors duration-300">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-3xl font-extrabold tracking-tight flex-shrink-0 mr-2 md:mr-6 hover:opacity-80 transition-opacity duration-200 drop-shadow-lg">Tea and Totes</Link>

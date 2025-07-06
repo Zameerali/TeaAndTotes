@@ -31,15 +31,15 @@ function ProductCard({ product, large }) {
   };
 
   return (
-    <div className={`border rounded-2xl p-4 shadow-xl hover:shadow-2xl transition transform hover:scale-105 bg-white dark:bg-gray-800 flex flex-col h-full animate-fade-in border-green-100 dark:border-gray-800 ${large ? 'max-w-md w-full md:max-w-lg md:p-8' : ''}`}>
+    <div className={`border rounded-2xl p-4 shadow-xl hover:shadow-2xl transition transform hover:scale-105 bg-white dark:bg-gray-800/90 flex flex-col h-full animate-fade-in border-green-100 dark:border-green-600 ${large ? 'max-w-md w-full md:max-w-lg md:p-8' : ''}`}>
       <Link to={`/product/${product._id}`}>
         <img
           src={getImageUrl(product.image)}
           alt={product.name}
           className={`w-full ${large ? 'h-72' : 'h-48'} object-cover rounded-xl mb-2 transition-all duration-300 border-2 border-green-100 dark:border-gray-700 shadow-sm bg-white dark:bg-gray-900`}
         />
-        <h3 className="text-xl font-bold mt-2 text-green-900 dark:text-green-100 line-clamp-1">{product.name}</h3>
-        <p className="text-green-700 dark:text-green-300 text-lg font-semibold">PKR {product.price}</p>
+        <h3 className="text-xl font-bold mt-2 text-green-900 dark:text-white line-clamp-1">{product.name}</h3>
+        <p className="text-green-700 dark:text-green-200 text-lg font-semibold">PKR {product.price}</p>
       </Link>
       <button
         onClick={handleAddToCart}

@@ -42,16 +42,16 @@ function ProductDetail() {
   if (!product) return <div>Loading...</div>;
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white dark:bg-gray-900 min-h-[80vh]">
       <div className="container mx-auto px-4 flex flex-col md:flex-row gap-8">
-        <img src={getImageUrl(product.image)} alt={product.name} className="w-full md:w-1/2 h-96 object-cover rounded" />
+        <img src={getImageUrl(product.image)} alt={product.name} className="w-full md:w-1/2 h-96 object-cover rounded bg-gray-100 dark:bg-gray-800" />
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-bold mb-4">{product.name}</h2>
-          <p className="text-gray-600 mb-4">PKR {product.price}</p>
-          <p className="text-gray-700 mb-6">{product.description}</p>
+          <h2 className="text-3xl font-bold mb-4 text-green-900 dark:text-white">{product.name}</h2>
+          <p className="text-gray-600 dark:text-gray-200 mb-4">PKR {product.price}</p>
+          <p className="text-gray-700 dark:text-gray-100 mb-6">{product.description}</p>
           <button
             onClick={handleAddToCart}
-            className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition"
+            className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 dark:hover:bg-green-800 transition"
           >
             Add to Cart
           </button>

@@ -14,13 +14,13 @@ function Products() {
   }, [category]);
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-100 dark:bg-gray-900 min-h-[80vh]">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Our Totes</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-green-900 dark:text-white">Our Totes</h2>
         <div className="flex justify-center mb-8">
           <select
             onChange={(e) => setCategory(e.target.value)}
-            className="border rounded px-4 py-2 bg-white shadow"
+            className="border rounded px-4 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow"
           >
             <option value="">All Categories</option>
             <option value="Eco">Eco</option>

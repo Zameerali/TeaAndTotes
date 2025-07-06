@@ -28,11 +28,11 @@ function Profile() {
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-900 min-h-[80vh]">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Your Profile</h2>
         <div className="max-w-xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-          <p className="text-lg mb-4"><strong>Name:</strong> {user.name}</p>
-          <p className="text-lg mb-8"><strong>Email:</strong> {user.email}</p>
-          <h3 className="text-2xl font-semibold mb-4">Order History</h3>
+          <h2 className="text-3xl font-bold text-center mb-8 text-green-900 dark:text-white">Your Profile</h2>
+          <p className="text-lg mb-4 text-gray-900 dark:text-gray-100 font-semibold"><strong>Name:</strong> {user.name}</p>
+          <p className="text-lg mb-8 text-gray-900 dark:text-gray-100 font-semibold"><strong>Email:</strong> {user.email}</p>
+          <h3 className="text-2xl font-semibold mb-4 text-green-800 dark:text-green-200">Order History</h3>
           {orders.length === 0 ? (
             <p className="text-gray-500 dark:text-gray-300">No orders yet.</p>
           ) : (

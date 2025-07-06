@@ -15,8 +15,8 @@ import Contact from './pages/Contact.jsx';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-green-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
-      <div className="backdrop-blur-sm bg-white/70 dark:bg-gray-900/80 min-h-screen flex flex-col transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-green-50 to-white dark:from-gray-900 dark:to-gray-900 transition-colors duration-300">
+      <div className="backdrop-blur-sm bg-white/70 dark:bg-gray-900/95 min-h-screen flex flex-col transition-colors duration-300">
         <Navbar />
         <main className="flex-grow">
           <Routes>
