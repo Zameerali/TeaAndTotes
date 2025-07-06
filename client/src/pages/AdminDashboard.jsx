@@ -205,7 +205,7 @@ function AdminDashboard() {
               <div key={product._id} className="border rounded-2xl p-4 shadow-xl hover:shadow-2xl transition transform hover:scale-105 bg-white dark:bg-gray-800 flex flex-col h-full animate-fade-in border-green-100 dark:border-gray-800">
                 <img src={getImageUrl(product.image)} alt={product.name} className="w-full aspect-square object-contain rounded-xl mb-2 transition-all duration-300 border-2 border-green-100 dark:border-gray-700 shadow-sm bg-white dark:bg-gray-900 h-48" />
                 <h4 className="text-xl font-bold mt-2 text-green-900 dark:text-green-100 line-clamp-1">{product.name}</h4>
-                <p className="text-green-700 dark:text-green-300 text-lg font-semibold mb-2">${product.price}</p>
+                <p className="text-green-700 dark:text-green-300 text-lg font-semibold mb-2">PKR {product.price}</p>
                 <button
                   onClick={() => handleDeleteProduct(product._id)}
                   className="mt-auto bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded-full font-semibold shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
@@ -230,7 +230,7 @@ function AdminDashboard() {
                     <span className="font-semibold text-green-800 dark:text-green-200">Order #{order._id.slice(-6)}</span>
                     <span className="text-sm text-gray-500 dark:text-gray-400">{order.userId.name} ({order.userId.email})</span>
                   </div>
-                  <div className="mb-2 text-green-700 dark:text-green-300 font-medium">Total: ${order.total.toFixed(2)}</div>
+                  <div className="mb-2 text-green-700 dark:text-green-300 font-medium">Total: PKR {order.total.toFixed(2)}</div>
                   {order.receipt && (
                     <div className="mb-2">
                       <span className="font-semibold">Receipt:</span>{' '}
@@ -261,7 +261,7 @@ function AdminDashboard() {
                     <span className="font-semibold">Items:</span>
                     <ul className="list-disc pl-6 mt-1 text-sm">
                       {order.items.map((item) => (
-                        <li key={item._id}>{item.name} (x{item.quantity}) - ${item.price}</li>
+                        <li key={item._id}>{item.name} (x{item.quantity}) - PKR {item.price}</li>
                       ))}
                     </ul>
                   </div>

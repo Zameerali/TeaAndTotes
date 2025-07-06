@@ -81,7 +81,7 @@ function Cart() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-green-900 dark:text-green-100">{item.name}</h3>
-                      <p className="text-green-700 dark:text-green-300 font-medium">${item.price}</p>
+                      <p className="text-green-700 dark:text-green-300 font-medium">PKR {item.price}</p>
                       <div className="flex items-center gap-2 mt-2">
                         <button
                           onClick={() => handleQuantityChange(productId, item.quantity - 1)}
@@ -110,7 +110,7 @@ function Cart() {
             })}
             <div className="text-right mt-8">
               <p className="text-lg font-semibold text-green-800 dark:text-green-200">
-                Total: ${cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}
+                Total: PKR {cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}
               </p>
               <Link
                 to="/checkout"

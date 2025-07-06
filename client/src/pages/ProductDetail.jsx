@@ -47,7 +47,7 @@ function ProductDetail() {
         <img src={getImageUrl(product.image)} alt={product.name} className="w-full md:w-1/2 h-96 object-cover rounded" />
         <div className="md:w-1/2">
           <h2 className="text-3xl font-bold mb-4">{product.name}</h2>
-          <p className="text-gray-600 mb-4">${product.price}</p>
+          <p className="text-gray-600 mb-4">PKR {product.price}</p>
           <p className="text-gray-700 mb-6">{product.description}</p>
           <button
             onClick={handleAddToCart}

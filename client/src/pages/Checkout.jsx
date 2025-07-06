@@ -112,7 +112,7 @@ function Checkout() {
             </div>
             <div className="text-right mt-6">
               <p className="text-lg font-semibold text-green-800 dark:text-green-200">
-                Total: ${cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}
+                Total: PKR {cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}
               </p>
               <button
                 type="submit"

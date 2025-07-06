@@ -43,7 +43,7 @@ function Profile() {
                     <span className="font-semibold text-green-800 dark:text-green-200">Order #{order._id.slice(-6)}</span>
                     <span className="text-sm text-gray-500 dark:text-gray-400">{order.status}</span>
                   </div>
-                  <div className="mb-2 text-green-700 dark:text-green-300 font-medium">Total: ${order.total.toFixed(2)}</div>
+                  <div className="mb-2 text-green-700 dark:text-green-300 font-medium">Total: PKR {order.total.toFixed(2)}</div>
                   {order.receipt && typeof order.receipt === 'string' && (
                     <div className="mb-2">
                       <span className="font-semibold">Receipt:</span> <a href={`/api/images/${order.receipt}`} target="_blank" rel="noopener noreferrer" className="text-green-600 underline">View Receipt</a>
@@ -53,7 +53,7 @@ function Profile() {
                     <span className="font-semibold">Items:</span>
                     <ul className="list-disc pl-6 mt-1 text-sm">
                       {order.items.map((item) => (
-                        <li key={item._id}>{item.name} (x{item.quantity}) - ${item.price}</li>
+                        <li key={item._id}>{item.name} (x{item.quantity}) - PKR {item.price}</li>
                       ))}
                     </ul>
                   </div>

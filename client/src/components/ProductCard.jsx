@@ -39,7 +39,7 @@ function ProductCard({ product, large }) {
           className={`w-full ${large ? 'h-72' : 'h-48'} object-cover rounded-xl mb-2 transition-all duration-300 border-2 border-green-100 dark:border-gray-700 shadow-sm bg-white dark:bg-gray-900`}
         />
         <h3 className="text-xl font-bold mt-2 text-green-900 dark:text-green-100 line-clamp-1">{product.name}</h3>
-        <p className="text-green-700 dark:text-green-300 text-lg font-semibold">${product.price}</p>
+        <p className="text-green-700 dark:text-green-300 text-lg font-semibold">PKR {product.price}</p>
       </Link>
       <button
         onClick={handleAddToCart}
