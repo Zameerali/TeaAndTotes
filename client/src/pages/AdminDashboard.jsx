@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDropzone } from 'react-dropzone';
 import API_URL from '../utils/api';
+import { getImageUrl } from '../utils/getImageUrl';
 
 function AdminDashboard() {
   const { user, token } = useSelector((state) => state.auth);
@@ -202,7 +203,7 @@ function AdminDashboard() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
               <div key={product._id} className="border rounded-2xl p-4 shadow-xl hover:shadow-2xl transition transform hover:scale-105 bg-white dark:bg-gray-800 flex flex-col h-full animate-fade-in border-green-100 dark:border-gray-800">
-                <img src={`/api/images/${product.image?._id || product.image}`} alt={product.name} className="w-full aspect-square object-contain rounded-xl mb-2 transition-all duration-300 border-2 border-green-100 dark:border-gray-700 shadow-sm bg-white dark:bg-gray-900 h-48" />
+                <img src={getImageUrl(product.image)} alt={product.name} className="w-full aspect-square object-contain rounded-xl mb-2 transition-all duration-300 border-2 border-green-100 dark:border-gray-700 shadow-sm bg-white dark:bg-gray-900 h-48" />
                 <h4 className="text-xl font-bold mt-2 text-green-900 dark:text-green-100 line-clamp-1">{product.name}</h4>
                 <p className="text-green-700 dark:text-green-300 text-lg font-semibold mb-2">${product.price}</p>
                 <button

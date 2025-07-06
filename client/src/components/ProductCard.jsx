@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCart } from '../redux/cartSlice';
 import axios from 'axios';
 import API_URL from '../utils/api';
+import { getImageUrl } from '../utils/getImageUrl';
 
 function ProductCard({ product, large }) {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ function ProductCard({ product, large }) {
     <div className={`border rounded-2xl p-4 shadow-xl hover:shadow-2xl transition transform hover:scale-105 bg-white dark:bg-gray-800 flex flex-col h-full animate-fade-in border-green-100 dark:border-gray-800 ${large ? 'max-w-md w-full md:max-w-lg md:p-8' : ''}`}>
       <Link to={`/product/${product._id}`}>
         <img
-          src={product.image ? `/api/images/${product.image}` : '/default-tote.jpg'}
+          src={getImageUrl(product.image)}
           alt={product.name}
           className={`w-full ${large ? 'h-72' : 'h-48'} object-cover rounded-xl mb-2 transition-all duration-300 border-2 border-green-100 dark:border-gray-700 shadow-sm bg-white dark:bg-gray-900`}
         />

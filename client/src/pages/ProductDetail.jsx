@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCart } from '../redux/cartSlice';
 import API_URL from '../utils/api';
+import { getImageUrl } from '../utils/getImageUrl';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -43,7 +44,7 @@ function ProductDetail() {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 flex flex-col md:flex-row gap-8">
-        <img src={`/api/images/${product.image}`} alt={product.name} className="w-full md:w-1/2 h-96 object-cover rounded" />
+        <img src={getImageUrl(product.image)} alt={product.name} className="w-full md:w-1/2 h-96 object-cover rounded" />
         <div className="md:w-1/2">
           <h2 className="text-3xl font-bold mb-4">{product.name}</h2>
           <p className="text-gray-600 mb-4">${product.price}</p>

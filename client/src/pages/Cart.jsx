@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 import API_URL from '../utils/api';
+import { getImageUrl } from '../utils/getImageUrl';
 
 function Cart() {
   const { cart } = useSelector((state) => state.cart);
@@ -71,7 +72,7 @@ function Cart() {
               <div key={item.productId} className="flex flex-col md:flex-row justify-between items-center border rounded-2xl p-4 shadow bg-white dark:bg-gray-800 border-green-100 dark:border-gray-800 animate-fade-in gap-4">
                 <div className="flex items-center gap-6 w-full md:w-auto">
                   <div className="w-32 h-32 flex items-center justify-center bg-gray-100 dark:bg-gray-900 rounded-xl border border-green-100 dark:border-gray-700 overflow-hidden">
-                    <img src={item.image ? `/api/images/${typeof item.image === 'object' ? item.image._id : item.image}` : '/default-tote.jpg'} alt={item.name} className="w-full h-full object-contain rounded-xl" />
+                    <img src={getImageUrl(item.image)} alt={item.name} className="w-full h-full object-contain rounded-xl" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-green-900 dark:text-green-100">{item.name}</h3>
