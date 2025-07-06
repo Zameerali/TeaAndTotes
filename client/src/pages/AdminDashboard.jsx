@@ -233,7 +233,15 @@ function AdminDashboard() {
                   <div className="mb-2 text-green-700 dark:text-green-300 font-medium">Total: ${order.total.toFixed(2)}</div>
                   {order.receipt && (
                     <div className="mb-2">
-                      <span className="font-semibold">Receipt:</span> <a href={`/api/images/${order.receipt._id}`} target="_blank" rel="noopener noreferrer" className="text-green-600 underline">View Receipt</a>
+                      <span className="font-semibold">Receipt:</span>{' '}
+                      <a
+                        href={`/api/images/${typeof order.receipt === 'object' && order.receipt !== null ? order.receipt._id || order.receipt.id : order.receipt}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-600 underline"
+                      >
+                        View Receipt
+                      </a>
                     </div>
                   )}
                   <div className="mb-2">
