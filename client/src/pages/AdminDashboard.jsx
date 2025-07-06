@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDropzone } from 'react-dropzone';
+import API_URL from '../utils/api';
 
 function AdminDashboard() {
   const { user, token } = useSelector((state) => state.auth);
@@ -33,13 +34,13 @@ function AdminDashboard() {
       return;
     }
 
-    axios.get('/api/products', {
+    axios.get(`${API_URL}/api/products`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => setProducts(res.data))
       .catch((err) => console.error('Error fetching products:', err));
 
-    axios.get('/api/admin/orders', {
+    axios.get(`${API_URL}/api/admin/orders`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => setOrders(res.data))
@@ -67,7 +68,7 @@ function AdminDashboard() {
       formData.append('featured', newProduct.featured);
       formData.append('image', image);
 
-      const res = await axios.post('/api/admin/products', formData, {
+      const res = await axios.post(`${API_URL}/api/admin/products`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -85,7 +86,7 @@ function AdminDashboard() {
 
   const handleDeleteProduct = async (id) => {
     try {
-      await axios.delete(`/api/admin/products/${id}`, {
+      await axios.delete(`${API_URL}/api/admin/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(products.filter((p) => p._id !== id));
@@ -97,7 +98,7 @@ function AdminDashboard() {
 
   const handleUpdateOrderStatus = async (id, status) => {
     try {
-      const res = await axios.put(`/api/admin/orders/${id}`, { status }, {
+      const res = await axios.put(`${API_URL}/api/admin/orders/${id}`, { status }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrders(orders.map((o) => (o._id === id ? res.data : o)));

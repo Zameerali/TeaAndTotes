@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCart } from '../redux/cartSlice';
 import axios from 'axios';
+import API_URL from '../utils/api';
 
 function ProductCard({ product, large }) {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function ProductCard({ product, large }) {
       return;
     }
     try {
-      const res = await axios.post('/api/cart/add', {
+      const res = await axios.post(`${API_URL}/api/cart/add`, {
         productId: product._id,
         name: product.name,
         price: product.price,

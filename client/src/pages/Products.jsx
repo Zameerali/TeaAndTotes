@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_URL from '../utils/api';
 import ProductCard from '../components/ProductCard';
 
 function Products() {
@@ -7,7 +8,7 @@ function Products() {
   const [category, setCategory] = useState('');
 
   useEffect(() => {
-    axios.get(`/api/products${category ? `?category=${category}` : ''}`)
+    axios.get(`${API_URL}/api/products${category ? `?category=${category}` : ''}`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.error('Error fetching products:', err));
   }, [category]);

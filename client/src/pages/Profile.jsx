@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_URL from '../utils/api';
 
 function Profile() {
   const { user, token } = useSelector((state) => state.auth);
@@ -8,7 +9,7 @@ function Profile() {
 
   useEffect(() => {
     if (user) {
-      axios.get('/api/orders', {
+      axios.get(`${API_URL}/api/orders`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => setOrders(res.data))

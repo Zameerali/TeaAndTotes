@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { login } from '../redux/authSlice';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../utils/api';
 
 function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -17,7 +18,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/login', formData);
+      const res = await axios.post(`${API_URL}/api/auth/login`, formData);
       dispatch(login({ user: res.data.user, token: res.data.token }));
       navigate('/');
     } catch (err) {

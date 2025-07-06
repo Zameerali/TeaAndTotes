@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_URL from '../utils/api';
 import ProductCard from '../components/ProductCard';
 
 function Home() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/products?featured=true')
+    axios.get(`${API_URL}/api/products?featured=true`)
       .then((res) => setFeaturedProducts(res.data))
       .catch((err) => console.error('Error fetching featured products:', err));
   }, []);

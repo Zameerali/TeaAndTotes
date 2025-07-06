@@ -3,6 +3,7 @@ import { setCart } from '../redux/cartSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
+import API_URL from '../utils/api';
 
 function Cart() {
   const { cart } = useSelector((state) => state.cart);
@@ -12,7 +13,7 @@ function Cart() {
 
   useEffect(() => {
     if (user) {
-      axios.get('/api/cart', {
+      axios.get(`${API_URL}/api/cart`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => dispatch(setCart(res.data.items)))
@@ -26,7 +27,7 @@ function Cart() {
       return;
     }
     try {
-      const res = await axios.put('/api/cart/update', { productId, quantity }, {
+      const res = await axios.put(`${API_URL}/api/cart/update`, { productId, quantity }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(setCart(res.data.items));
@@ -41,7 +42,7 @@ function Cart() {
       return;
     }
     try {
-      const res = await axios.delete(`/api/cart/remove/${productId}`, {
+      const res = await axios.delete(`${API_URL}/api/cart/remove/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(setCart(res.data.items));

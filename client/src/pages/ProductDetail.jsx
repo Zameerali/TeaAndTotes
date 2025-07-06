@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCart } from '../redux/cartSlice';
+import API_URL from '../utils/api';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -12,7 +13,7 @@ function ProductDetail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`/api/products/${id}`)
+    axios.get(`${API_URL}/api/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error('Error fetching product:', err));
   }, [id]);
@@ -23,7 +24,7 @@ function ProductDetail() {
       return;
     }
     try {
-      const res = await axios.post('/api/cart/add', {
+      const res = await axios.post(`${API_URL}/api/cart/add`, {
         productId: product._id,
         name: product.name,
         price: product.price,

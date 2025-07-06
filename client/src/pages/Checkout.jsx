@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../utils/api';
 import { clearCart } from '../redux/cartSlice';
 import { useDropzone } from 'react-dropzone';
 
@@ -48,7 +49,7 @@ function Checkout() {
       formDataToSend.append('shippingAddress', formData.address);
       formDataToSend.append('receipt', receipt);
 
-      await axios.post('/api/orders', formDataToSend, {
+      await axios.post(`${API_URL}/api/orders`, formDataToSend, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
