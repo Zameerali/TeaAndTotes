@@ -46,14 +46,14 @@ function Profile() {
                   <div className="mb-2 text-green-700 dark:text-green-300 font-medium">Total: PKR {order.total.toFixed(2)}</div>
                   {order.receipt && typeof order.receipt === 'string' && (
                     <div className="mb-2">
-                      <span className="font-semibold">Receipt:</span> <a href={`/api/images/${order.receipt}`} target="_blank" rel="noopener noreferrer" className="text-green-600 underline">View Receipt</a>
+                      <span className="font-semibold text-gray-900 dark:text-gray-100">Receipt:</span> <a href={`/api/images/${order.receipt}`} target="_blank" rel="noopener noreferrer" className="text-green-600 dark:text-green-300 underline">View Receipt</a>
                     </div>
                   )}
                   <div>
-                    <span className="font-semibold">Items:</span>
+                    <span className="font-semibold text-gray-900 dark:text-gray-100">Items:</span>
                     <ul className="list-disc pl-6 mt-1 text-sm">
                       {order.items.map((item) => (
-                        <li key={item._id}>{item.name} (x{item.quantity}) - PKR {item.price}</li>
+                        <li key={item._id} className="text-gray-800 dark:text-gray-200">{item.name} (x{item.quantity}) - PKR {item.price}</li>
                       ))}
                     </ul>
                   </div>
