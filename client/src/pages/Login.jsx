@@ -62,8 +62,8 @@ function Login() {
               Login
             </button>
           </form>
-          <p className="text-center mt-4">
-            Don't have an account? <a href="/register" className="text-green-600 hover:underline">Register</a>
+          <p className="text-center mt-4 text-gray-800 dark:text-gray-200">
+            Don't have an account? <a href="/register" className="text-green-600 dark:text-green-300 hover:underline">Register</a>
           </p>
         </div>
       </div>
