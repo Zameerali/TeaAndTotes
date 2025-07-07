@@ -55,7 +55,7 @@ function Cart() {
   if (!user) {
     return (
       <section className="py-16 text-center">
-        <p>Please <Link to="/login" className="text-green-600">login</Link> to view your cart.</p>
+        <p className="text-gray-800 dark:text-white">Please <Link to="/login" className="text-green-600 dark:text-green-300">login</Link> to view your cart.</p>
       </section>
     );
   }

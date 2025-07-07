@@ -11,7 +11,7 @@ function Checkout() {
   const { user, token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ name: '', address: '' });
+  const [formData, setFormData] = useState({ name: user?.name || '', contactNumber: user?.contactNumber || '', address: '' });
   const [receipt, setReceipt] = useState(null);
   const [errors, setErrors] = useState({});
 
@@ -29,6 +29,7 @@ function Checkout() {
   const validate = () => {
     const newErrors = {};
     if (!formData.name) newErrors.name = 'Name is required';
+    if (!formData.contactNumber) newErrors.contactNumber = 'Contact number is required';
     if (!formData.address) newErrors.address = 'Address is required';
     if (!receipt) newErrors.receipt = 'Payment receipt is required';
     return newErrors;
@@ -48,6 +49,7 @@ function Checkout() {
       formDataToSend.append('total', cart.reduce((sum, item) => sum + item.price * item.quantity, 0));
       formDataToSend.append('shippingAddress', formData.address);
       formDataToSend.append('receipt', receipt);
+      formDataToSend.append('contactNumber', formData.contactNumber);
 
       await axios.post(`${API_URL}/api/orders`, formDataToSend, {
         headers: {
@@ -89,6 +91,19 @@ function Checkout() {
                 placeholder="Enter your name"
               />
               {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Contact Number</label>
+              <input
+                type="text"
+                name="contactNumber"
+                value={formData.contactNumber}
+                onChange={handleChange}
+                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                placeholder="Enter your contact number"
+                required
+              />
+              {errors.contactNumber && <p className="text-red-600 text-sm mt-1">{errors.contactNumber}</p>}
             </div>
             <div className="flex flex-col gap-1">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Address</label>

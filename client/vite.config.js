@@ -6,7 +6,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  server: isDev ? {
+  server: !isDev ? {
     proxy: {
       '/api': {
         target: 'http://localhost:5000', // Local backend for dev

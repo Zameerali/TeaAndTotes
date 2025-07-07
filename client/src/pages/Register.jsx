@@ -6,7 +6,7 @@ import axios from 'axios';
 import API_URL from '../utils/api';
 
 function Register() {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', contactNumber: '', password: '', confirmPassword: '' });
   const [error, setError] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,8 +17,17 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
     try {
-      const res = await axios.post(`${API_URL}/api/auth/register`, formData);
+      const res = await axios.post(`${API_URL}/api/auth/register`, {
+        name: formData.name,
+        email: formData.email,
+        contactNumber: formData.contactNumber,
+        password: formData.password,
+      });
       dispatch(login({ user: res.data.user, token: res.data.token }));
       navigate('/');
     } catch (err) {
@@ -56,6 +65,18 @@ function Register() {
               />
             </div>
             <div className="flex flex-col gap-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Contact Number</label>
+              <input
+                type="text"
+                name="contactNumber"
+                value={formData.contactNumber}
+                onChange={handleChange}
+                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                placeholder="Enter your contact number"
+                required
+              />
+            </div>
+            <div className="flex flex-col gap-1">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
               <input
                 type="password"
@@ -64,6 +85,19 @@ function Register() {
                 onChange={handleChange}
                 className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                 placeholder="Enter your password"
+                required
+              />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Confirm Password</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                placeholder="Confirm your password"
+                required
               />
             </div>
             <button
