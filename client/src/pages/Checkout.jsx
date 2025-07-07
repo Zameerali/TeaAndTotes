@@ -81,44 +81,43 @@ function Checkout() {
         <div className="max-w-lg mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-green-100 dark:border-gray-800">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="flex flex-col gap-1">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-white">Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                 placeholder="Enter your name"
+                required
               />
-              {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
             </div>
             <div className="flex flex-col gap-1">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Contact Number</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-white">Contact Number</label>
               <input
                 type="text"
                 name="contactNumber"
                 value={formData.contactNumber}
                 onChange={handleChange}
-                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                 placeholder="Enter your contact number"
                 required
               />
-              {errors.contactNumber && <p className="text-red-600 text-sm mt-1">{errors.contactNumber}</p>}
             </div>
             <div className="flex flex-col gap-1">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Address</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-white">Address</label>
               <input
                 type="text"
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
-                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                className="w-full border border-green-200 dark:border-green-700 rounded-lg px-4 py-2 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                 placeholder="Enter your address"
+                required
               />
-              {errors.address && <p className="text-red-600 text-sm mt-1">{errors.address}</p>}
             </div>
             <div className="flex flex-col gap-1">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Payment Receipt</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-white">Payment Receipt</label>
               <div {...getRootProps()} className="border-2 border-dashed border-green-300 dark:border-green-700 p-4 text-center cursor-pointer rounded-lg bg-gray-50 dark:bg-gray-900 hover:bg-green-50 dark:hover:bg-green-900 transition">
                 <input {...getInputProps()} />
                 <p className="text-gray-500 dark:text-gray-400">{receipt ? receipt.name : 'Drag & drop or click to upload receipt'}</p>
