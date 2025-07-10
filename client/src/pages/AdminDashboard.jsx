@@ -173,9 +173,8 @@ function AdminDashboard() {
                 required
               >
                 <option value="">Select Category</option>
-                <option value="Eco">Eco</option>
+                <option value="Eco">Customised</option>
                 <option value="Canvas">Canvas</option>
-                <option value="Leather">Leather</option>
               </select>
             </div>
             <div className="flex items-center gap-2">
